@@ -1,0 +1,51 @@
+"""
+
+判断练习题
+判断输入的边长能否构成三角形，如果能则计算出三角形的周长和面积
+
+"""
+
+a = float(input("请输入三角形边长a"))
+b = float(input("请输入三角形边长b"))
+c = float(input("请输入三角形边长c"))
+
+if a + b > c and a + c > b and b + c > a:
+    s = a + b + c
+    p = 0.5*s
+    area = (p*(p-a)*(p-b)*(p-c))**0.5
+    print("三角形周长为%f" % s)
+    print("三角形面积为%f" % area)
+
+else: print("无法构成三角形")
+
+#PS： 有尝试过调用math模块里的sqrt函数开根号 结果不能强制转型复数结果 要注意
+
+
+
+"""
+循环练习 
+
+"""
+#  用for循环实现数字100之内偶数的求和
+
+s = 0
+for x in range(2, 101, 2):     #range产生了一个从2开始到100的序列 步长为2
+    s = s + x
+print("100之内的偶数和为%d" % s)
+
+# 用while循环实现一个猜数字游戏：在0~100内随即生成一个数字 让人猜 提示大小
+import random
+
+answer = random.randint(0, 100)
+i = 0
+while True:
+    i += 1
+    number = int(input("请输入你猜的数字哦"))
+    if number > answer:
+        print("大了")
+    elif number < answer:
+        print("小了")
+    else:
+        print("答对了哦")
+        break
+print("一共答了%d次" % i)
